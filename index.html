@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Omnitrix Deauther Watch Guide</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header>
+  <h1>🟢 OMNITRIX DEAUTHER WATCH</h1>
+  <p>Educational DIY Guide • Hardware • UI • Downloads</p>
+</header>
+
+<nav>
+  <a href="#overview">Overview</a>
+  <a href="#components">Components</a>
+  <a href="#steps">Build Steps</a>
+  <a href="#software">Software</a>
+  <a href="#downloads">Downloads</a>
+</nav>
+
+<section id="overview" class="card">
+  <h2>🧬 Project Overview</h2>
+  <p>
+    This project demonstrates how to build a **watch-style WiFi research device**
+    using the
+    :contentReference[oaicite:0]{index=0}
+    with an **Omnitrix-inspired interface**.
+  </p>
+  <p class="warning">
+    ⚠️ For educational, lab, and authorized testing only.
+  </p>
+</section>
+
+<section id="components" class="card">
+  <h2>🔩 Component List</h2>
+  <ul>
+    <li>ESP32-C3 development board</li>
+    <li>SSD1306 OLED display (128×64)</li>
+    <li>5× tactile buttons (Up / Down / Left / Right / Select)</li>
+    <li>Li-ion battery (optional)</li>
+    <li>TP4056 charging module</li>
+    <li>3D printed Omnitrix-style enclosure</li>
+    <li>Wires, resistors, soldering tools</li>
+  </ul>
+</section>
+
+<section id="steps" class="card">
+  <h2>🛠️ Step-by-Step Build Guide</h2>
+
+  <ol>
+    <li>
+      <strong>Prepare the ESP board</strong><br>
+      Install USB drivers and verify board connection in Arduino/ESP-IDF.
+    </li>
+
+    <li>
+      <strong>Connect the OLED</strong><br>
+      Use I2C pins (SDA/SCL) and test with a basic display sketch.
+    </li>
+
+    <li>
+      <strong>Wire the buttons</strong><br>
+      Assign GPIOs for navigation and menu control.
+    </li>
+
+    <li>
+      <strong>Assemble the enclosure</strong><br>
+      Mount components inside the Omnitrix-style watch case.
+    </li>
+
+    <li>
+      <strong>Upload UI firmware</strong><br>
+      Flash the menu-based interface and verify button navigation.
+    </li>
+  </ol>
+</section>
+
+<section id="software" class="card">
+  <h2>💾 Software Information</h2>
+  <p>
+    The firmware provides:
+  </p>
+  <ul>
+    <li>Menu-based OLED UI</li>
+    <li>Button navigation</li>
+    <li>System monitoring screens</li>
+    <li>Educational WiFi analysis tools</li>
+  </ul>
+
+  <p class="note">
+    Actual network testing features must only be used on networks you own or
+    have permission to test.
+  </p>
+</section>
+
+<section id="downloads" class="card">
+  <h2>⬇️ Downloads</h2>
+
+  <div class="downloads">
+    <a href="downloads/omnitrix-ui.png" download>
+      🟢 Omnitrix UI Image
+    </a>
+
+    <a href="downloads/watch-case.png" download>
+      ⌚ Watch Case Design
+    </a>
+
+    <a href="downloads/software-info.pdf" download>
+      📄 Software Documentation
+    </a>
+  </div>
+</section>
+
+<footer>
+  Built by Arib • Omnitrix Deauther Watch • Educational Project
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

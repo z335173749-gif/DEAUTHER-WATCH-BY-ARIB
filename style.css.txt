@@ -1,0 +1,68 @@
+body {
+  background: radial-gradient(circle at top, #041a0e, #000);
+  color: #ccffdd;
+  font-family: Arial, sans-serif;
+  margin: 0;
+}
+
+header {
+  text-align: center;
+  padding: 30px;
+  border-bottom: 3px solid #00ff66;
+}
+
+nav {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  padding: 10px;
+  background: #020b06;
+}
+
+nav a {
+  color: #00ff66;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.card {
+  max-width: 900px;
+  margin: 25px auto;
+  background: #050f0a;
+  border: 1px solid #00ff66;
+  border-radius: 16px;
+  padding: 20px;
+}
+
+h2 {
+  color: #00ff66;
+}
+
+.warning {
+  color: #ffcc00;
+  margin-top: 10px;
+}
+
+.note {
+  font-size: 14px;
+  opacity: 0.8;
+}
+
+.downloads a {
+  display: block;
+  margin: 10px 0;
+  padding: 10px;
+  border: 1px solid #00ff66;
+  border-radius: 10px;
+  text-decoration: none;
+  color: #00ff66;
+  text-align: center;
+}
+
+footer {
+  text-align: center;
+  padding: 15px;
+  border-top: 1px solid #00ff66;
+  font-size: 13px;
+  opacity: 0.7;
+}

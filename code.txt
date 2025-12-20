@@ -1,0 +1,91 @@
+#include <Wire.h>
+#include <Adafruit_GFX.h>
+#include <Adafruit_SSD1306.h>
+#include <ESP32Time.h>
+
+#define SCREEN_WIDTH 128
+#define SCREEN_HEIGHT 64
+
+#define OLED_RESET -1
+Adafruit_SSD1306 display(SCREEN_WIDTH, SCREEN_HEIGHT, &Wire, OLED_RESET);
+
+ESP32Time rtc;
+
+#define SDA_PIN 21
+#define SCL_PIN 22
+
+#define BTN_SELECT 0
+#define BTN_UP 4
+#define BTN_DOWN 5
+
+int animFrame = 0;
+int batteryLevel = 85; // mock value
+
+void drawOmnitrixCore(int frame) {
+  int cx = 64;
+  int cy = 32;
+
+  display.drawCircle(cx, cy, 30, SSD1306_GREEN);
+  display.drawCircle(cx, cy, 28, SSD1306_GREEN);
+
+  int angle = frame * 15;
+  float rad = angle * 0.0174533;
+
+  int x1 = cx + cos(rad) * 20;
+  int y1 = cy + sin(rad) * 20;
+  int x2 = cx - cos(rad) * 20;
+  int y2 = cy - sin(rad) * 20;
+
+  display.drawLine(cx, cy, x1, y1, SSD1306_GREEN);
+  display.drawLine(cx, cy, x2, y2, SSD1306_GREEN);
+
+  display.fillCircle(cx, cy, 6, SSD1306_GREEN);
+}
+
+void drawTime() {
+  display.setTextSize(1);
+  display.setTextColor(SSD1306_GREEN);
+  display.setCursor(38, 54);
+
+  display.printf("%02d:%02d",
+    rtc.getHour(true),
+    rtc.getMinute()
+  );
+}
+
+void drawBattery() {
+  display.drawRect(108, 0, 18, 8, SSD1306_GREEN);
+  display.fillRect(126, 2, 2, 4, SSD1306_GREEN);
+  int level = map(batteryLevel, 0, 100, 0, 16);
+  display.fillRect(110, 2, level, 4, SSD1306_GREEN);
+}
+
+void setup() {
+  pinMode(BTN_SELECT, INPUT_PULLUP);
+  pinMode(BTN_UP, INPUT_PULLUP);
+  pinMode(BTN_DOWN, INPUT_PULLUP);
+
+  Wire.begin(SDA_PIN, SCL_PIN);
+
+  if (!display.begin(SSD1306_SWITCHCAPVCC, 0x3C)) {
+    while (true);
+  }
+
+  display.clearDisplay();
+  rtc.setTime(28, 10, 0, 18, 1, 2024); // hh mm ss DD MM YYYY
+}
+
+void loop() {
+  display.clearDisplay();
+
+  drawOmnitrixCore(animFrame);
+  drawTime();
+  drawBattery();
+
+  display.display();
+
+  animFrame++;
+  if (animFrame > 24) animFrame = 0;
+
+  delay(80);
+}
